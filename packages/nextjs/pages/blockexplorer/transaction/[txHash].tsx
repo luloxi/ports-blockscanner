@@ -4,12 +4,7 @@ import { ethers } from "ethers";
 import type { NextPage } from "next";
 import { localhost } from "wagmi/chains";
 import { Address } from "~~/components/scaffold-eth";
-import {
-  TransactionWithFunction,
-  decodeTransactionData,
-  getFunctionDetails,
-  getTargetNetwork,
-} from "~~/utils/scaffold-eth";
+import { TransactionWithFunction, decodeTransactionData, getTargetNetwork } from "~~/utils/scaffold-eth";
 import { getLocalProvider } from "~~/utils/scaffold-eth";
 
 const provider = getLocalProvider(localhost) || new ethers.providers.JsonRpcProvider("http://localhost:8545");
@@ -103,7 +98,7 @@ const TransactionPage: NextPage = () => {
                     "This transaction did not call any function."
                   ) : (
                     <>
-                      {getFunctionDetails(transaction)}
+                      {transaction.functionName + `(${transaction.functionArgNames})`}
                       <span className="ml-2 inline-block rounded-full px-3 py-1 text-sm font-semibold text-primary-content bg-accent">
                         {functionCalled}
                       </span>
