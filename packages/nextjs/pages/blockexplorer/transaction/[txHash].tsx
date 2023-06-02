@@ -113,6 +113,33 @@ const TransactionPage: NextPage = () => {
               </tr>
               <tr>
                 <td>
+                  <strong>Arguments:</strong>
+                </td>
+                <td>
+                  {transaction.functionArgs && (
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Type</th>
+                          <th>Value</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {transaction.functionArgs.map((arg, index) => (
+                          <tr key={index}>
+                            <td>{transaction.functionArgNames ? transaction.functionArgNames[index] : null}</td>
+                            <td>{transaction.functionArgTypes ? transaction.functionArgTypes[index] : null}</td>
+                            <td>{arg}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  )}
+                </td>
+              </tr>
+              <tr>
+                <td>
                   <strong>Gas Price:</strong>
                 </td>
                 <td>{ethers.utils.formatUnits(transaction.gasPrice || ethers.constants.Zero, "gwei")} Gwei</td>
