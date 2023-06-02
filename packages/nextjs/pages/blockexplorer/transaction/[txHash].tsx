@@ -116,7 +116,7 @@ const TransactionPage: NextPage = () => {
                   <strong>Arguments:</strong>
                 </td>
                 <td>
-                  {transaction.functionArgs && (
+                  {transaction.functionArgNames && (
                     <table>
                       <thead>
                         <tr>
@@ -126,11 +126,11 @@ const TransactionPage: NextPage = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        {transaction.functionArgs.map((arg, index) => (
+                        {transaction.functionArgNames.map((name, index) => (
                           <tr key={index}>
-                            <td>{transaction.functionArgNames ? transaction.functionArgNames[index] : null}</td>
+                            <td>{name}</td>
                             <td>{transaction.functionArgTypes ? transaction.functionArgTypes[index] : null}</td>
-                            <td>{arg}</td>
+                            <td>{transaction.functionArgs ? transaction.functionArgs[index] : null}</td>
                           </tr>
                         ))}
                       </tbody>
@@ -138,6 +138,7 @@ const TransactionPage: NextPage = () => {
                   )}
                 </td>
               </tr>
+
               <tr>
                 <td>
                   <strong>Gas Price:</strong>
