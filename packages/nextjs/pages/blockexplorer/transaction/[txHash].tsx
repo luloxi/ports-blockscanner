@@ -125,7 +125,7 @@ const TransactionPage: NextPage = () => {
                           <tr key={index}>
                             <td>{name}</td>
                             <td>{transaction.functionArgTypes ? transaction.functionArgTypes[index] : null}</td>
-                            <td>{transaction.functionArgs ? transaction.functionArgs[index] : null}</td>
+                            <td>{transaction.functionArgs ? transaction.functionArgs[index].toString() : null}</td>
                           </tr>
                         ))}
                       </tbody>
